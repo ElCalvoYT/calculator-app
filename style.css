@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: var(--white);
+    font-weight: 400;
+}
+
+:root{
+    --dark-gray: rgb(36, 36, 36);
+    --medium-gray: rgb(77, 77, 77);
+    --medium-light-gray: rgb(67, 67, 67);
+    --light-gray: rgb(107, 107, 107);
+    --white: rgb(233, 233, 233);
+    --yellow: rgb(254, 179, 40);
+    --orage: rgb(255, 138, 0);
+    --red: rgb(255, 84, 77);
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+
+    & .container{
+        height: 500px;
+        width: 300px;
+        padding: 0.7rem 1rem 1rem;
+        border-radius: 20px;
+        background-color: var(--dark-gray);
+        flex-direction: column;
+        justify-content: center;
+
+        & .buttons,
+        & .calculator-output,
+        & .numpad{
+            width: 100%;
+        }
+
+        & .buttons{
+            height: 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+            justify-content: start;
+            align-items: center;
+
+            & .button{
+                height: 15px;
+                width: 15px;
+                border-radius: 100%;
+                background-color: var(--medium-light-gray);
+
+                &:first-child{
+                    background-color: var(--red);
+                }
+
+                &:nth-child(2){
+                    background-color: var(--yellow);
+                }
+            }
+        }
+
+        & .calculator-output{
+            height: 30%;
+            padding: 0 0.8rem 0.8rem 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: end;
+        }
+
+        & .numpad{
+            height: calc(100% - 30% - 20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+
+            & .row{
+                height: calc(100% / 5);
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+
+                & button{
+                    height: 55px;
+                    width: 55px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: none;
+                    outline: none;
+                    border-radius: 100%;
+                    font-size: x-large;
+                    background-color: var(--medium-gray);
+                    cursor: pointer;
+                    transition: 0.25s ease-in-out;
+                }
+
+                & button.orange{
+                    background-color: var(--orage);
+                }
+
+                & button.light-gray{
+                    background-color: var(--light-gray);
+                }
+
+                & button.operator.active{
+                    background-color: var(--white);
+                    color: var(--dark-gray);
+                }
+
+                & button:hover{
+                    scale: 1.05;
+                }
+            }
+
+            & .row.odd button:first-child{
+                width: calc(55px*2 + 0.5rem);
+                border-radius: 100px;
+            }
+        }
+    }
+}
